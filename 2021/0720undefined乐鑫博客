@@ -457,7 +457,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    289
+                    268
                 </div>
                 
 
@@ -501,22 +501,9 @@
 <li>联系作者<br>QQ: 2382346237<br>微信: xin180236X  </li>
 </ul>
 <h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><ul>
-<li><a href="lexin8023.github.io">Rx乐鑫博客</a>  </li>
+<li><a href="lexin8023.github.io">Rx乐鑫博客</a></li>
 </ul>
-<div id="container"></div>
-<link rel="stylesheet" href="https:/ /imsun.github.io/gitment/style/default.css"><script src="https:/ /imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-    id: 'Location.href',
-    owner: 'Rx乐鑫',
-    repo: 'comments ', 
-    oauth: {
-        client_id:'4a7a9f215163c6c663aa',
-        client_secret: '15ea7a84252caba363ebba1bfc7f8b02fdc9ba11' ,
-    },
-})
-gitment.render('container')
-</script>
+
                 
             </div>
             <hr/>
@@ -1414,7 +1401,7 @@ gitment.render('container')
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">289</span>&nbsp;字
+                class="white-color">268</span>&nbsp;字
             
             
             
