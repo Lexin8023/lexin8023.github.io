@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Rx乐鑫博客">
+    <meta name="keywords" content="介绍, Rx乐鑫博客">
     <meta name="description" content="而吾所建之小博，非为其他，乃为品文、学习及分享所用">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | Rx乐鑫博客</title>
+    <title>介绍 | Rx乐鑫博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/lexin8023/lexin8023.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/lexin8023/lexin8023.github.io/libs/awesome/css/all.css">
@@ -332,12 +332,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/lexin8023/lexin8023.github.io/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/lexin8023/lexin8023.github.io/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">介绍</h1>
                 </div>
             </div>
         </div>
@@ -479,7 +479,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    73
+                    268
                 </div>
                 
 
@@ -506,19 +506,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                <p>Welcome to Rx乐鑫博客! This is my first post.</p>
+<h1 id="网站介绍"><a href="#网站介绍" class="headerlink" title="网站介绍"></a>网站介绍</h1><h2 id="关于网站"><a href="#关于网站" class="headerlink" title="关于网站"></a>关于网站</h2><ol>
+<li><p>搭建时间:2021年7月18日  </p>
+</li>
+<li><p>我写这些博客的目的有两点:</p>
+<ul>
+<li>第一点是为了通过博客使自己成长起来，增长见识，学习到更多的知识，以便以后能够用到自己的所学。  </li>
+<li>第二点是为了读者，看我的博客的人其实是幸运的，因为我是一个初学者，读者朋友可以和我一起进步，一起探讨，共同进步，达到互利共赢，也希望我写的博客内容能够帮助一些在编程方面有问题的朋友。在这里如果你发现我写的有哪些不对或不足之处，请您谅解。你可以及时评论来告诫我，我会采纳改正的，我会不断完善我的博客。希望你们常来，谢谢！  </li>
+</ul>
+</li>
+</ol>
+<p> <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201205%2F03%2F01400598djmyeczcskh2yr.jpg&refer=http%3A%2F%2Fattach.bbs.miui.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629361817&t=8d0b0a9a630a0b419b1b4cd972c25837"></p>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><ul>
+<li>现为一名大学生,主学软件技术专业.(个人爱好编程)</li>
+<li>联系作者<br>QQ: 2382346237<br>微信: xin180236X  </li>
+</ul>
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><ul>
+<li><a href="lexin8023.github.io">Rx乐鑫博客</a></li>
+</ul>
 
                 
             </div>
@@ -751,7 +757,7 @@
     disqus_config = function () {
         this.page.url = 'https://lexin8023.github.io/2021/0720undefined%E4%B9%90%E9%91%AB%E5%8D%9A%E5%AE%A2';
         this.page.identifier = '/2021/0720undefined%E4%B9%90%E9%91%AB%E5%8D%9A%E5%AE%A2';
-        this.page.title = 'Hello World';
+        this.page.title = '介绍';
     };
     let disqus_shortname = '';
 
@@ -856,9 +862,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/lexin8023/lexin8023.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="https://cdn.jsdelivr.net/gh/lexin8023/lexin8023.github.io/medias/featureimages/18.jpg" class="responsive-img" alt="介绍">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">介绍</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -894,9 +900,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/lexin8023/lexin8023.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="https://cdn.jsdelivr.net/gh/lexin8023/lexin8023.github.io/medias/featureimages/18.jpg" class="responsive-img" alt="介绍">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">介绍</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1154,7 +1160,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">73</span>&nbsp;字
+                class="white-color">268</span>&nbsp;字
             
             
             
