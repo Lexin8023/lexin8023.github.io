@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="解决Github网站打不开的问题, Rx乐鑫博客">
+    <meta name="keywords" content="DES加密使用入门, Rx乐鑫博客">
     <meta name="description" content="而吾所建之小博，非为其他，乃为品文、学习及分享所用">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -15,7 +15,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>解决Github网站打不开的问题 | Rx乐鑫博客</title>
+    <title>DES加密使用入门 | Rx乐鑫博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/lexin8023/lexin8023.github.io/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/lexin8023/lexin8023.github.io/libs/awesome/css/all.css">
@@ -319,12 +319,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/lexin8023/lexin8023.github.io/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/lexin8023/lexin8023.github.io/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">解决Github网站打不开的问题</h1>
+                    <h1 class="description center-align post-title">DES加密使用入门</h1>
                 </div>
             </div>
         </div>
@@ -488,49 +488,92 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                 <meta name="referrer" content="no-referrer">
- 
-<p>GitHub是一个面向开源及私有软件项目的托管平台，因为只支持git作为唯一的版本库格式进行托管，故名GitHub。<br>简单来说，GitHub是一个代码托管云服务网站，帮助开发者存储和管理其项目源代码，并且能够追踪、记录并控制用户对其代码的修改。<br>甚至你可以简单粗暴的把它当作一个网盘，用来存储任何东西。<br><img src="http://www.javacui.com/ueditor/php/upload/image/20210630/1625039810964990.jpg"></p>
-<h1 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h1><h2 id="一、确定ip"><a href="#一、确定ip" class="headerlink" title="一、确定ip"></a>一、确定ip</h2><pre><code>进入网址https://github.com.ipaddress.com   
+                <h1 id="DES加密使用入门"><a href="#DES加密使用入门" class="headerlink" title="DES加密使用入门"></a>DES加密使用入门</h1><p>所谓加密，从应用角度就是使用指定的密钥将指定的数据进行加密。我们不用关心具体算法的实现，只要关心应用本身需求和加密方法的使用即可。<br>如下是DES加密方法是用的示例，注意使用DES的话密钥长度应该是8的倍数。  </p>
+<pre><code>package com.util;  
+import java.security.SecureRandom;  
+import javax.crypto.Cipher;  
+import javax.crypto.SecretKey;  
+import javax.crypto.SecretKeyFactory;  
+import javax.crypto.spec.DESKeySpec;  
+public class DESUtil &#123;  
+       private static final String PASSWORD_CRYPT_KEY = &quot;123456&quot;;// 示例密钥  
+       private final static String DES = &quot;DES&quot;;  
+       public static void main(String[] args) &#123;  
+       System.out.println(encrypt(&quot;Rxlexin&quot;, &quot;12345678&quot;));  
+       System.out.println(decrypt(encrypt(&quot;Rxlexin&quot;, &quot;12345678&quot;),&quot;12345678&quot;));  
+       &#125;  
+ /**  
+  * 加密  
+  * @param src 数据  
+  * @param key 密钥，长度必须是8的倍数  
+  * @return 返回加密后的数据  
+  */  
+    private static byte[] encrypt(byte[] src, byte[] key) throws Exception &#123;  
+         SecureRandom sr = new SecureRandom();  
+         DESKeySpec dks = new DESKeySpec(key);  
+         SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(DES);  
+         SecretKey securekey = keyFactory.generateSecret(dks);  
+         Cipher cipher = Cipher.getInstance(DES);  
+         cipher.init(Cipher.ENCRYPT_MODE, securekey, sr);  
+         return cipher.doFinal(src);  
+    &#125;  
+ /**  
+  * 解密  
+  * @param src 数据  
+  * @param key 密钥，长度必须是8的倍数  
+  * @return 返回解密后的原始数据  
+  */  
+    private static byte[] decrypt(byte[] src, byte[] key) throws Exception &#123;  
+         SecureRandom sr = new SecureRandom();  
+         DESKeySpec dks = new DESKeySpec(key);  
+         SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(DES);  
+         SecretKey securekey = keyFactory.generateSecret(dks);  
+         Cipher cipher = Cipher.getInstance(DES);  
+         cipher.init(Cipher.DECRYPT_MODE, securekey, sr);  
+         return cipher.doFinal(src);  
+    &#125;  
+ /**  
+  * 密码加密  
+  */  
+    public final static String encrypt(String data, String key) &#123;  
+        try &#123;  
+                return byte2hex(encrypt(data.getBytes(), key.getBytes()));  
+        &#125; catch (Exception e) &#123;  
+                e.printStackTrace();  
+        &#125;  
+        return null;  
+    &#125;  
+ /**  
+  * 密码解密  
+  */  
+    public final static String decrypt(String data, String key) &#123;  
+        try &#123;  
+                return new String(decrypt(hex2byte(data), key.getBytes()));  
+        &#125; catch (Exception e) &#123;  
+                e.printStackTrace();  
+        &#125;  
+  return null;  
+    &#125;  
+ // 字节码转换成16进制字符串  
+     private static String byte2hex(byte bytes[]) &#123;  
+         StringBuffer retString = new StringBuffer();  
+         for (int i = 0; i &lt; bytes.length; ++i) &#123;  
+             retString.append(Integer.toHexString(0x0100 + (bytes[i] &amp; 0x00FF)).  substring(1).toUpperCase());  
+         &#125;  
+  return retString.toString();  
+     &#125;  
+ // 将16进制字符串转换成字节码  
+     private static byte[] hex2byte(String hex) &#123;  
+         byte[] bts = new byte[hex.length() / 2];  
+         for (int i = 0; i &lt; bts.length; i++) &#123;  
+              bts[i] = (byte) Integer.parseInt(hex.substring(2 * i, 2 * i + 2),16);  
+         &#125;  
+  return bts;  
+     &#125;  
+&#125;  
 </code></pre>
-<p>查看GitHub的ip地址。<br><img src="http://www.javacui.com/ueditor/php/upload/image/20210630/1625039850696290.jpg">  </p>
-<pre><code>140.82.113.4 GitHub  
-</code></pre>
-<h2 id="二、确定域名ip"><a href="#二、确定域名ip" class="headerlink" title="二、确定域名ip"></a>二、确定域名ip</h2><pre><code>进入网址 https://fastly.net.ipaddress.com/github.global.ssl.fastly.net  
-</code></pre>
-<p><img src="http://www.javacui.com/ueditor/php/upload/image/20210630/1625039862991527.jpg">  </p>
-<pre><code>199.232.5.194  github.global.ssl.fastly.net  
-</code></pre>
-<h2 id="三、确定静态资源ip"><a href="#三、确定静态资源ip" class="headerlink" title="三、确定静态资源ip"></a>三、确定静态资源ip</h2><pre><code>进入网址 https://github.com.ipaddress.com/assets-cdn.github.com  
-</code></pre>
-<p><img src="http://www.javacui.com/ueditor/php/upload/image/20210630/1625039887731021.jpg">  </p>
-<pre><code>185.199.108.153   assets-cdn.github.com
-
-185.199.109.153   assets-cdn.github.com
-
-185.199.110.153   assets-cdn.github.com
-
-185.199.111.153   assets-cdn.github.com  
-</code></pre>
-<h2 id="四、修改hosts文件"><a href="#四、修改hosts文件" class="headerlink" title="四、修改hosts文件"></a>四、修改hosts文件</h2><pre><code>Windows系统：打开C:\Windows\System32\drivers\etc
-找到hosts文件，可以使用notepad打开，如果没有，右键选择打开方式为记事本即可。
-在底部加入前三步获得的内容，即:  
-  
-  140.82.113.4 GitHub  
-  199.232.5.194  github.global.ssl.fastly.net  
-  185.199.108.153   assets-cdn.github.com
-  185.199.109.153   assets-cdn.github.com
-  185.199.110.153   assets-cdn.github.com
-  185.199.111.153   assets-cdn.github.com  
-
-  注明:地址和网址之间为一个空格  
-</code></pre>
-<p>一般情况下就可以直接访问了，也有可能存在浏览器或者dns更新较慢的情况<br>对浏览器而言，可以关闭重启浏览器。  </p>
-<p>对DNS更新的话，可以打开cmd，输入: ipconfig /flushdns  </p>
-<h2 id="五、补充"><a href="#五、补充" class="headerlink" title="五、补充"></a>五、补充</h2><p>如果作为开发你涉及到经常切换HOST的操作，比如在开发测试正式环境之间切换，可以使用一款工具SwitchHosts，它能够帮助你快速的切换HOST且定制不同的HOST。  </p>
-<h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><pre><code>https://swh.app/zh/  
-</code></pre>
-<p>说明 : SwitchHosts 是一个管理、切换多个 hosts 方案的工具。它是一个免费开源软件。 </p>
+<p>   以上代码仅供参考    </p>
+<p><img src="http://www.javacui.com/ueditor/php/upload/image/20150317/1426561988329331.png">  </p>
 
                 
             </div>
@@ -557,7 +600,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lexin8023.github.io/2021/07/28/%E8%A7%A3%E5%86%B3Github%E7%BD%91%E7%AB%99%E6%89%93%E4%B8%8D%E5%BC%80%E7%9A%84%E9%97%AE%E9%A2%98/">https://lexin8023.github.io/2021/07/28/%E8%A7%A3%E5%86%B3Github%E7%BD%91%E7%AB%99%E6%89%93%E4%B8%8D%E5%BC%80%E7%9A%84%E9%97%AE%E9%A2%98/</a>
+                    <a href="https://lexin8023.github.io/2021/07/28/DES%E5%8A%A0%E5%AF%86%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/">https://lexin8023.github.io/2021/07/28/DES%E5%8A%A0%E5%AF%86%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -948,9 +991,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/07/28/DES%E5%8A%A0%E5%AF%86%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/">
                     <div class="card-image">
@@ -968,9 +1012,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -979,6 +1023,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -989,13 +1034,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/07/20/%E4%BB%8B%E7%BB%8D/">
+                <a href="/2021/07/28/%E8%A7%A3%E5%86%B3Github%E7%BD%91%E7%AB%99%E6%89%93%E4%B8%8D%E5%BC%80%E7%9A%84%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/lexin8023/lexin8023.github.io/medias/featureimages/18.jpg" class="responsive-img" alt="介绍">
+                        <img src="https://cdn.jsdelivr.net/gh/lexin8023/lexin8023.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="解决Github网站打不开的问题">
                         
-                        <span class="card-title">介绍</span>
+                        <span class="card-title">解决Github网站打不开的问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1006,7 +1051,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-28
                             </span>
                         <span class="publish-author">
                             
