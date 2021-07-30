@@ -492,34 +492,37 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="DES加密使用入门"><a href="#DES加密使用入门" class="headerlink" title="DES加密使用入门"></a>DES加密使用入门</h1><p>所谓加密，从应用角度就是使用指定的密钥将指定的数据进行加密。我们不用关心具体算法的实现，只要关心应用本身需求和加密方法的使用即可。<br>如下是DES加密方法是用的示例，注意使用DES的话密钥长度应该是8的倍数。  </p>
+                <h1 id="DES加密使用入门"><a href="#DES加密使用入门" class="headerlink" title="DES加密使用入门"></a>DES加密使用入门</h1><p>所谓加密，从应用角度就是使用指定的密钥将指定的数据进行加密。我们不用关心具体<br>算法的实现，只要关心应用本身需求和加密方法的使用即可。<br>如下是DES加密方法是用的示例，注意使用DES的话密钥长度应该是8的倍数。  </p>
 <pre><code>package com.util;  
-import java.security.SecureRandom;  
+import java.security.SecureRandom;    
 import javax.crypto.Cipher;  
 import javax.crypto.SecretKey;  
 import javax.crypto.SecretKeyFactory;  
 import javax.crypto.spec.DESKeySpec;  
 public class DESUtil &#123;  
-       private static final String PASSWORD_CRYPT_KEY = &quot;123456&quot;;// 示例密钥  
+       private static final String PASSWORD_CRYPT_KEY = &quot;123456&quot;;  
+        // 示例密钥  
        private final static String DES = &quot;DES&quot;;  
        public static void main(String[] args) &#123;  
        System.out.println(encrypt(&quot;Rxlexin&quot;, &quot;12345678&quot;));  
-       System.out.println(decrypt(encrypt(&quot;Rxlexin&quot;, &quot;12345678&quot;),&quot;12345678&quot;));  
-       &#125;  
+       System.out.println(decrypt(encrypt(&quot;Rxlexin&quot;, &quot;12345678&quot;),  
+        &quot;12345678&quot;));  
+       &#125;    
  /**  
   * 加密  
   * @param src 数据  
   * @param key 密钥，长度必须是8的倍数  
   * @return 返回加密后的数据  
   */  
-    private static byte[] encrypt(byte[] src, byte[] key) throws Exception &#123;  
-         SecureRandom sr = new SecureRandom();  
-         DESKeySpec dks = new DESKeySpec(key);  
-         SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(DES);  
-         SecretKey securekey = keyFactory.generateSecret(dks);  
-         Cipher cipher = Cipher.getInstance(DES);  
-         cipher.init(Cipher.ENCRYPT_MODE, securekey, sr);  
-         return cipher.doFinal(src);  
+    private static byte[] encrypt(byte[] src, byte[] key) throws   
+    Exception &#123;  
+        SecureRandom sr = new SecureRandom();  
+        DESKeySpec dks = new DESKeySpec(key);  
+        SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(DES);  
+        SecretKey securekey = keyFactory.generateSecret(dks);  
+        Cipher cipher = Cipher.getInstance(DES);  
+        cipher.init(Cipher.ENCRYPT_MODE, securekey, sr);  
+        return cipher.doFinal(src);  
     &#125;  
  /**  
   * 解密  
@@ -527,21 +530,22 @@ public class DESUtil &#123;
   * @param key 密钥，长度必须是8的倍数  
   * @return 返回解密后的原始数据  
   */  
-    private static byte[] decrypt(byte[] src, byte[] key) throws Exception &#123;  
-         SecureRandom sr = new SecureRandom();  
-         DESKeySpec dks = new DESKeySpec(key);  
-         SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(DES);  
-         SecretKey securekey = keyFactory.generateSecret(dks);  
-         Cipher cipher = Cipher.getInstance(DES);  
-         cipher.init(Cipher.DECRYPT_MODE, securekey, sr);  
-         return cipher.doFinal(src);  
+    private static byte[] decrypt(byte[] src, byte[] key) throws  
+    Exception &#123;  
+        SecureRandom sr = new SecureRandom();  
+        DESKeySpec dks = new DESKeySpec(key);  
+        SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(DES);  
+        SecretKey securekey = keyFactory.generateSecret(dks);  
+        Cipher cipher = Cipher.getInstance(DES);  
+        cipher.init(Cipher.DECRYPT_MODE, securekey, sr);  
+        return cipher.doFinal(src);  
     &#125;  
  /**  
   * 密码加密  
   */  
     public final static String encrypt(String data, String key) &#123;  
         try &#123;  
-                return byte2hex(encrypt(data.getBytes(), key.getBytes()));  
+            return byte2hex(encrypt(data.getBytes(), key.getBytes()));  
         &#125; catch (Exception e) &#123;  
                 e.printStackTrace();  
         &#125;  
@@ -552,7 +556,7 @@ public class DESUtil &#123;
   */  
     public final static String decrypt(String data, String key) &#123;  
         try &#123;  
-                return new String(decrypt(hex2byte(data), key.getBytes()));  
+             return new String(decrypt(hex2byte(data), key.getBytes()));  
         &#125; catch (Exception e) &#123;  
                 e.printStackTrace();  
         &#125;  
@@ -562,7 +566,8 @@ public class DESUtil &#123;
      private static String byte2hex(byte bytes[]) &#123;  
          StringBuffer retString = new StringBuffer();  
          for (int i = 0; i &lt; bytes.length; ++i) &#123;  
-             retString.append(Integer.toHexString(0x0100 + (bytes[i] &amp; 0x00FF)).  substring(1).toUpperCase());  
+             retString.append(Integer.toHexString(0x0100 +  
+                (bytes[i] &amp; 0x00FF)).  substring(1).toUpperCase());  
          &#125;  
   return retString.toString();  
      &#125;  
@@ -570,7 +575,8 @@ public class DESUtil &#123;
      private static byte[] hex2byte(String hex) &#123;  
          byte[] bts = new byte[hex.length() / 2];  
          for (int i = 0; i &lt; bts.length; i++) &#123;  
-              bts[i] = (byte) Integer.parseInt(hex.substring(2 * i, 2 * i + 2),16);  
+              bts[i] = (byte) Integer.parseInt  
+              (hex.substring (2 * i, 2 * i + 2),16);  
          &#125;  
   return bts;  
      &#125;  
